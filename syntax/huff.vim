@@ -10,8 +10,8 @@ endif
 syn match huffInclude '#include'
 syn match huffDefine  '#define'
 
-syn keyword huffKeyword     takes return returns function constant
-syn keyword huffKeyword     public external internal private view pure
+syn keyword huffKeyword     takes returns 
+syn keyword huffKeyword     return function constant
 syn keyword huffBuiltinType address
 syn keyword huffBuiltinType int int8 int16 int24 int32 int40 int48 int56 int64 int72 
 syn keyword huffBuiltinType uint uint8 uint16 uint24 uint32 uint40 uint48 uint56 uint64 uint72 
@@ -32,17 +32,36 @@ hi def link huffDefine      Define
 hi def link huffKeyword     Keyword
 hi def link huffBuiltinType Type
 
-" Function definition
-syn match huffFunction      /\<function\>/ nextgroup=huffFuncName,huffFuncArgs skipwhite
-syn match huffFuncName      contained /\<[a-zA-Z_$][0-9a-zA-Z_$]*/ nextgroup=huffFuncArgs skipwhite
-syn region huffFuncArgs     contained matchgroup=huffFuncParens start='(' end=')' contains=huffFuncArgCommas,huffBuiltinType nextgroup=huffModifierName,huffFuncReturns keepend skipwhite skipempty
-syn match huffModifierName  contained /\<[a-zA-Z_$][0-9a-zA-Z_$]*/ nextgroup=huffModifierArgs,huffModifierName skipwhite
-syn region  solModifierArgs contained matchgroup=huffFuncParens start='(' end=')' contains=huffFuncArgCommas nextgroup=huffModifierName,huffFuncReturns skipwhite
-syn region huffFuncReturns  contained matchgroup=huffFuncParens start='(' end=')' contains=huffFuncArgCommas,huffBuiltinType
-syn match huffFuncArgCommas contained ','
 
-hi def link huffFunction     Type
-hi def link huffFuncName     Function
-hi def link huffModifierName Function
+" Macro
+syn keyword huffMacro nextgroup=huffMacroName skipwhite skipempty
+    \ macro
+syn match huffMacroName contained skipwhite skipempty
+    \ '\v<[a-zA-Z_][0-9a-zA-Z_]*'
+
+hi def link huffMacro     Keyword
+hi def link huffMacroName Function
+
+
+" Functions 
+syn keyword huffFunction     nextgroup=huffFuncName,huffFuncArgs skipwhite skipempty function
+syn match huffFuncName       contained nextgroup=huffFuncArgs skipwhite skipempty '\v<[a-zA-Z_][0-9a-zA-Z_]*'
+syn region huffFuncArgs      contained start='(' end=')' contains=huffComma,huffBuiltinType nextgroup=huffFuncModCustom,huffFuncModifier,huffFuncReturn skipempty skipwhite
+syn keyword huffFuncModifier contained nextgroup=huffFuncModifier,huffFuncReturn skipwhite skipempty external internal payable public pure view private contant override virtual
+syn match huffFuncModCustom  contained nextgroup=huffFuncModifier,huffFuncModCustom,huffFuncReturn skipempty skipwhite '\v<[a-zA-Z_][0-9a-zA-Z_]*'
+syn keyword huffFuncReturn   contained nextgroup=huffFuncRetParens skipwhite skipempty returns
+syn region huffFuncRetParens contains=huffBuiltinType,huffComma
+
+hi def link huffFunction      Define
+hi def link huffFuncName      Function
+hi def link huffFuncModifer   keyword
+hi def link huffFuncModCustom Keyword
+hi def link huffFuncReturn    special
+
+" Common Groups
+syn match huffComma ','
+
+hi def link huffComma Normal
+
 
 let b:current_syntax = "huff"
