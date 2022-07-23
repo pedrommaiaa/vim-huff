@@ -27,17 +27,15 @@ syn region huffString  start="\v'" skip="\v\\." end="\v'"
 
 hi def link huffComment     Comment
 hi def link huffString      String
-hi def link huffInlcude     Include 
+hi def link huffInclude     Include 
 hi def link huffDefine      Define
 hi def link huffKeyword     Keyword
 hi def link huffBuiltinType Type
 
 
 " Macro
-syn keyword huffMacro nextgroup=huffMacroName skipwhite skipempty
-    \ macro
-syn match huffMacroName contained skipwhite skipempty
-    \ '\v<[a-zA-Z_][0-9a-zA-Z_]*'
+syn keyword huffMacro nextgroup=huffMacroName skipwhite skipempty macro
+syn match huffMacroName contained skipwhite skipempty '\v<[a-zA-Z_][0-9a-zA-Z_]*'
 
 hi def link huffMacro     Keyword
 hi def link huffMacroName Function
@@ -52,11 +50,11 @@ syn match huffFuncModCustom  contained nextgroup=huffFuncModifier,huffFuncModCus
 syn keyword huffFuncReturn   contained nextgroup=huffFuncRetParens skipwhite skipempty returns
 syn region huffFuncRetParens contains=huffBuiltinType,huffComma
 
-hi def link huffFunction      Define
+hi def link huffFunction      Keyword
 hi def link huffFuncName      Function
-hi def link huffFuncModifer   keyword
+hi def link huffFuncModifer   Keyword
 hi def link huffFuncModCustom Keyword
-hi def link huffFuncReturn    special
+hi def link huffFuncReturn    Special
 
 " Common Groups
 syn match huffComma ','
