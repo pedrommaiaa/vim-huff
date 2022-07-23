@@ -12,6 +12,7 @@ syn match huffDefine  '#define'
 
 syn keyword huffKeyword     takes return returns function constant
 syn keyword huffKeyword     public external internal private view pure
+syn keyword huffBuiltinType address
 syn keyword huffBuiltinType int int8 int16 int24 int32 int40 int48 int56 int64 int72 
 syn keyword huffBuiltinType uint uint8 uint16 uint24 uint32 uint40 uint48 uint56 uint64 uint72 
 syn keyword huffBuiltinType int80 int88 int96 int104 int112 int120 int128 int136 int144 int152 
@@ -32,13 +33,16 @@ hi def link huffKeyword     Keyword
 hi def link huffBuiltinType Type
 
 " Function definition
-syn match huffFunction  /\<function\>/ nextgroup=huffFuncName,huffFuncArgs skipwhite
-syn match huffFuncName  contained /\<[a-zA-Z_$][0-9a-zA-Z_$]*/ nextgroup=huffFuncArgs skipwhite
-syn region huffFuncArgs contained matchgroup=huffFuncParens start='(' end=')' contains=huffFuncArgCommas,huffBuiltinType nextgroup=huffFuncReturns keepend skipwhite skipempty
-syn region huffFuncReturns contained matchgroup=huffFuncParens start='(' end=')' contains=huffFuncArgCommas,huffBuiltinType
+syn match huffFunction      /\<function\>/ nextgroup=huffFuncName,huffFuncArgs skipwhite
+syn match huffFuncName      contained /\<[a-zA-Z_$][0-9a-zA-Z_$]*/ nextgroup=huffFuncArgs skipwhite
+syn region huffFuncArgs     contained matchgroup=huffFuncParens start='(' end=')' contains=huffFuncArgCommas,huffBuiltinType nextgroup=huffModifierName,huffFuncReturns keepend skipwhite skipempty
+syn match huffModifierName  contained /\<[a-zA-Z_$][0-9a-zA-Z_$]*/ nextgroup=huffModifierArgs,huffModifierName skipwhite
+syn region  solModifierArgs contained matchgroup=huffFuncParens start='(' end=')' contains=huffFuncArgCommas nextgroup=huffModifierName,huffFuncReturns skipwhite
+syn region huffFuncReturns  contained matchgroup=huffFuncParens start='(' end=')' contains=huffFuncArgCommas,huffBuiltinType
 syn match huffFuncArgCommas contained ','
 
-hi def link huffFunction Type
-hi def link huffFuncName Function
+hi def link huffFunction     Type
+hi def link huffFuncName     Function
+hi def link huffModifierName Function
 
 let b:current_syntax = "huff"
