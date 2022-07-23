@@ -48,7 +48,7 @@ syn region huffFuncArgs      contained start='(' end=')' contains=huffComma,huff
 syn keyword huffFuncModifier contained nextgroup=huffFuncModifier,huffFuncReturn skipwhite skipempty external internal payable public pure view private contant override virtual
 syn match huffFuncModCustom  contained nextgroup=huffFuncModifier,huffFuncModCustom,huffFuncReturn skipempty skipwhite '\v<[a-zA-Z_][0-9a-zA-Z_]*'
 syn keyword huffFuncReturn   contained nextgroup=huffFuncRetParens skipwhite skipempty returns
-syn region huffFuncRetParens contains=huffBuiltinType,huffComma
+syn region huffFuncRetParens contains=huffBuiltinType,huffComma start='(' end=')' skipwhite skipempty
 
 hi def link huffFunction      Keyword
 hi def link huffFuncName      Function
