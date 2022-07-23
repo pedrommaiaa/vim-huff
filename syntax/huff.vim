@@ -7,12 +7,12 @@ if exists("b:current_syntax")
     finish
 endif
 
-syn keyword opInputs sstore sload mstore8 mstore mload pop msize balance address returndatacopy
+syn keyword huffOpcodes sstore sload mstore8 mstore mload pop msize balance address returndatacopy
 
 syn region huffComment start=/\/\// end=/$/
 
 
-hi def link opInputs Opcodes
+hi def link huffOpcodes Keyword 
 hi def link huffComment Comment
 
 
