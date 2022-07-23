@@ -7,13 +7,22 @@ if exists("b:current_syntax")
     finish
 endif
 
-syn keyword huffOpcodes sstore sload mstore8 mstore mload pop msize balance address returndatacopy
+syn match huffInclude '#include'
+syn match huffDefine  '#define'
+
+syn keyword huffKeyword takes returns
 
 syn region huffComment start=/\/\// end=/$/
+syn region huffComment start=/\/\*/ end=/\*\//
+syn region huffString  start=/\v"/ skip=/\v\\./ end=/\v"/
+syn region huffString  start=/\v'/ skip="/v\\." end="/v'"
 
 
-hi def link huffOpcodes Keyword 
 hi def link huffComment Comment
+hi def link huffString  String
+hi def link huffInlcude Special
+hi def link huffDefine  Define
+hi def link huffKeyword Keyword
 
 
 let b:current_syntax = "huff"
