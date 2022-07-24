@@ -49,7 +49,6 @@ syn keyword huffAssembltConst  returndatasize origin gasprice coinbase timestamp
 hi def link huffAssemblyMethod Special
 hi def link huffAssemblyConst  Constant
 
-
 " Macro
 syn keyword huffMacro nextgroup=huffMacroName skipwhite skipempty macro
 syn match huffMacroName contained skipwhite skipempty '\v<[a-zA-Z_][0-9a-zA-Z_]*'
@@ -63,6 +62,14 @@ syn match huffConstName  contained skipwhite skipempty '\v<[a-zA-Z_][0-9a-zA-Z_]
 
 hi def link huffConstant  Define 
 hi def link huffConstName Constant 
+
+" Events
+syn keyword huffEvent    nextgroup=huffEvent skipwhite skipempty event
+syn match huffEventName  contained nextgroup=huffEventArgs skipwhite skipempty '\v<[a-zA-Z_][0-9a-zA-Z_]*'
+syn region huffEventArgs contained start='(' end=')' containes=huffComma,huffBuiltinType skipempty skipwhite
+
+hi def link huffEvent     Define
+hi def link huffEventName Function
 
 " Functions 
 syn keyword huffFunction     nextgroup=huffFuncName,huffFuncArgs skipwhite skipempty function
