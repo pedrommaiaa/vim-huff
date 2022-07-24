@@ -39,10 +39,10 @@ syn keyword huffAssemblyMethod jumpi pop mload mstore mstore8 sload sstore calld
 syn keyword huffAssemblyMethod codecopy extcodesize extcodecopy returndatacopy extcodehash create create2
 syn keyword huffAssemblyMethod call callcode delegatecall staticcall return revert selfdestruct
 syn keyword huffAssemblyMethod log0 log1 log2 log3 log4 blockhash
-syn keyword huffAssemblyMethod swap1, swap2, swap3, swap4, swap5, swap6, swap7, swap8, swap9, swap10, swap11, swap12 
-syn keyword huffAssemblyMethod swap13, swap14, swap15, swap16
-syn keyword huffAssemblyMethod dup1, dup2, dup3, dup4, dup5, dup6, dup7, dup8, dup9, dup10, dup11, dup12, dup13, dup14
-syn keyword huffAssemblyMethod dup15, dup16
+syn keyword huffAssemblyMethod swap1 swap2 swap3 swap4 swap5 swap6 swap7 swap8 swap9 swap10 swap11 swap12 
+syn keyword huffAssemblyMethod swap13 swap14 swap15 swap16
+syn keyword huffAssemblyMethod dup1 dup2 dup3 dup4 dup5 dup6 dup7 dup8 dup9 dup10 dup11 dup12 dup13 dup14
+syn keyword huffAssemblyMethod dup15 dup16
 syn keyword huffAssembltConst  pc msize gas address caller callvalue calldatasize codesize
 syn keyword huffAssembltConst  returndatasize origin gasprice coinbase timestamp number difficulty gaslimit
 
