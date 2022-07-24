@@ -40,20 +40,25 @@ syn match huffMacroName contained skipwhite skipempty '\v<[a-zA-Z_][0-9a-zA-Z_]*
 hi def link huffMacro     Keyword
 hi def link huffMacroName Function
 
+" Constants
+syn keyword huffConstant nextgroup=huffConstName skipwhite skipempty constant
+syn match huffConstName  contained skipwhite skipempty '\v<[a-zA-Z_][0-9a-zA-Z_]*'
+
+hi def link huffConstant Keyword
+hi def link huffConstName 
+
 
 " Functions 
 syn keyword huffFunction     nextgroup=huffFuncName,huffFuncArgs skipwhite skipempty function
 syn match huffFuncName       contained nextgroup=huffFuncArgs skipwhite skipempty '\v<[a-zA-Z_][0-9a-zA-Z_]*'
-syn region huffFuncArgs      contained start='(' end=')' contains=huffComma,huffBuiltinType nextgroup=huffFuncModCustom,huffFuncModifier,huffFuncReturn skipempty skipwhite
+syn region huffFuncArgs      contained start='(' end=')' contains=huffComma,huffBuiltinType nextgroup=huffFuncModifier,huffFuncReturn skipempty skipwhite
 syn keyword huffFuncModifier contained nextgroup=huffFuncModifier,huffFuncReturn skipwhite skipempty external internal payable public pure view private contant override virtual
-syn match huffFuncModCustom  contained nextgroup=huffFuncModifier,huffFuncModCustom,huffFuncReturn skipempty skipwhite '\v<[a-zA-Z_][0-9a-zA-Z_]*'
 syn keyword huffFuncReturn   contained nextgroup=huffFuncRetParens skipwhite skipempty returns
 syn region huffFuncRetParens contains=huffBuiltinType,huffComma start='(' end=')' skipwhite skipempty
 
 hi def link huffFunction      Keyword
 hi def link huffFuncName      Function
-hi def link huffFuncModifer   Keyword
-hi def link huffFuncModCustom Keyword
+hi def link huffFuncModifer   StorageClass 
 hi def link huffFuncReturn    Special
 
 " Common Groups
