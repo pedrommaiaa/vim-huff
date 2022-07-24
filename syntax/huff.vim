@@ -47,7 +47,6 @@ syn match huffConstName  contained skipwhite skipempty '\v<[a-zA-Z_][0-9a-zA-Z_]
 hi def link huffConstant  Keyword
 hi def link huffConstName Constant 
 
-
 " Functions 
 syn keyword huffFunction     nextgroup=huffFuncName,huffFuncArgs skipwhite skipempty function
 syn match huffFuncName       contained nextgroup=huffFuncArgs skipwhite skipempty '\v<[a-zA-Z_][0-9a-zA-Z_]*'
@@ -60,6 +59,13 @@ hi def link huffFunction      Keyword
 hi def link huffFuncName      Function
 hi def link huffFuncModifier  Keyword 
 hi def link huffFuncReturn    Special
+
+" Numbers
+syntax match  huffNumber '\v0x\x+>'
+syntax match  huffNumber '\v\c<%(\d+%(e[+-]=\d+)=|0b[01]+|0o\o+|0x\x+)>'
+syntax match  huffNumber '\v\c<%(\d+.\d+|\d+.|.\d+)%(e[+-]=\d+)=>'
+
+hi def link   huffNumber Number
 
 " Common Groups
 syn match huffComma ','
