@@ -66,7 +66,7 @@ hi def link huffConstName Constant
 " Events
 syn keyword huffEvent    nextgroup=huffEvent skipwhite skipempty event
 syn match huffEventName  contained nextgroup=huffEventArgs skipwhite skipempty '\v<[a-zA-Z_][0-9a-zA-Z_]*'
-syn region huffEventArgs contained start='(' end=')' containes=huffComma,huffBuiltinType skipempty skipwhite
+syn region huffEventArgs contained start='(' end=')' contains=huffComma,huffBuiltinType skipempty skipwhite
 
 hi def link huffEvent     Define
 hi def link huffEventName Function
