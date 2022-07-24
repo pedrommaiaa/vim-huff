@@ -33,15 +33,15 @@ hi def link huffKeyword     Keyword
 hi def link huffBuiltinType Type
 
 " Assembly
-syn keyword huffAssemblyMethod stop add sub mul div sdiv mod smod exp not lt gt slt sgt eq iszero contained
-syn keyword huffAssemblyMethod and or xor byte shl shr sar addmod mulmod signextend keccak256 jump contained
-syn keyword huffAssemblyMethod jumpi pop mload mstore mstore8 sload sstore calldataload calldatacopy contained
-syn keyword huffAssemblyMethod codecopy extcodesize extcodecopy returndatacopy extcodehash create create2 contained
-syn keyword huffAssemblyMethod call callcode delegatecall staticcall return revert selfdestruct contained
-syn keyword huffAssemblyMethod log0 log1 log2 log3 log4 blockhash contained
-syn keyword huffAssemblyMethod /\<\(swap\|dup\)\d\>/ contained
-syn keyword huffAssembltConst  pc msize gas address caller callvalue calldatasize codesize contained
-syn keyword huffAssembltConst  returndatasize origin gasprice coinbase timestamp number difficulty gaslimit contained
+syn keyword huffAssemblyMethod stop add sub mul div sdiv mod smod exp not lt gt slt sgt eq iszero 
+syn keyword huffAssemblyMethod and or xor byte shl shr sar addmod mulmod signextend keccak256 jump
+syn keyword huffAssemblyMethod jumpi pop mload mstore mstore8 sload sstore calldataload calldatacopy
+syn keyword huffAssemblyMethod codecopy extcodesize extcodecopy returndatacopy extcodehash create create2
+syn keyword huffAssemblyMethod call callcode delegatecall staticcall return revert selfdestruct
+syn keyword huffAssemblyMethod log0 log1 log2 log3 log4 blockhash
+syn keyword huffAssemblyMethod /\<\(swap\|dup\)\d\>/
+syn keyword huffAssembltConst  pc msize gas address caller callvalue calldatasize codesize
+syn keyword huffAssembltConst  returndatasize origin gasprice coinbase timestamp number difficulty gaslimit
 
 hi def link huffAssemblyMethod Special
 hi def link huffAssemblyConst  Constant
