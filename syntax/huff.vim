@@ -44,8 +44,8 @@ hi def link huffMacroName Function
 syn keyword huffConstant nextgroup=huffConstName skipwhite skipempty constant
 syn match huffConstName  contained skipwhite skipempty '\v<[a-zA-Z_][0-9a-zA-Z_]*'
 
-hi def link huffConstant Keyword
-hi def link huffConstName 
+hi def link huffConstant  Keyword
+hi def link huffConstName Function 
 
 
 " Functions 
