@@ -52,7 +52,17 @@ hi def link huffConstName Constant
 syn keyword huffFunction     nextgroup=huffFuncName,huffFuncArgs skipwhite skipempty function
 syn match huffFuncName       contained nextgroup=huffFuncArgs skipwhite skipempty '\v<[a-zA-Z_][0-9a-zA-Z_]*'
 syn region huffFuncArgs      contained start='(' end=')' contains=huffComma,huffBuiltinType nextgroup=huffFuncModifier,huffFuncReturn skipempty skipwhite
-syn keyword huffFuncModifier contained nextgroup=huffFuncModifier,huffFuncReturn skipwhite skipempty external internal payable public pure view private contant override virtual
+syn keyword huffFuncModifier contained nextgroup=huffFuncModifier,huffFuncReturn skipwhite skipempty 
+    \ external 
+    \ internal 
+    \ nonpayable 
+    \ public 
+    \ pure 
+    \ view 
+    \ private 
+    \ contant 
+    \ override 
+    \ virtual
 syn keyword huffFuncReturn   contained nextgroup=huffFuncRetParens skipwhite skipempty returns
 syn region huffFuncRetParens contains=huffBuiltinType,huffComma start='(' end=')' skipwhite skipempty
 
