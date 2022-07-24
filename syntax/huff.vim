@@ -32,6 +32,20 @@ hi def link huffDefine      Define
 hi def link huffKeyword     Keyword
 hi def link huffBuiltinType Type
 
+" Assembly
+syn keyword huffAssemblyMethod stop add sub mul div sdiv mod smod exp not lt gt slt sgt eq iszero contained
+syn keyword huffAssemblyMethod and or xor byte shl shr sar addmod mulmod signextend keccak256 jump contained
+syn keyword huffAssemblyMethod jumpi pop mload mstore mstore8 sload sstore calldataload calldatacopy contained
+syn keyword huffAssemblyMethod codecopy extcodesize extcodecopy returndatacopy extcodehash create create2 contained
+syn keyword huffAssemblyMethod call callcode delegatecall staticcall return revert selfdestruct contained
+syn keyword huffAssemblyMethod log0 log1 log2 log3 log4 blockhash contained
+syn keyword huffAssemblyMethod /\<\(swap\|dup\)\d\>/ contained
+syn keyword huffAssembltConst  pc msize gas address caller callvalue calldatasize codesize contained
+syn keyword huffAssembltConst  returndatasize origin gasprice coinbase timestamp number difficulty gaslimit contained
+
+hi def link huffAssemblyMethod Special
+hi def link huffAssemblyConst  Constant
+
 
 " Macro
 syn keyword huffMacro nextgroup=huffMacroName skipwhite skipempty macro
@@ -40,11 +54,11 @@ syn match huffMacroName contained skipwhite skipempty '\v<[a-zA-Z_][0-9a-zA-Z_]*
 hi def link huffMacro     Keyword
 hi def link huffMacroName Function
 
-" Constants
+" Constant Definition
 syn keyword huffConstant nextgroup=huffConstName skipwhite skipempty constant
 syn match huffConstName  contained skipwhite skipempty '\v<[a-zA-Z_][0-9a-zA-Z_]*'
 
-hi def link huffConstant  Keyword
+hi def link huffConstant  Define 
 hi def link huffConstName Constant 
 
 " Functions 
@@ -55,7 +69,7 @@ syn keyword huffFuncModifier contained nextgroup=huffFuncModifier,huffFuncReturn
 syn keyword huffFuncReturn   contained nextgroup=huffFuncRetParens skipwhite skipempty returns
 syn region huffFuncRetParens contains=huffBuiltinType,huffComma start='(' end=')' skipwhite skipempty
 
-hi def link huffFunction      Keyword
+hi def link huffFunction      Define 
 hi def link huffFuncName      Function
 hi def link huffFuncModifier  Keyword 
 hi def link huffFuncReturn    Special
