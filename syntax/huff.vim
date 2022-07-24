@@ -11,7 +11,7 @@ syn match huffInclude '#include'
 syn match huffDefine  '#define'
 
 syn keyword huffKeyword     takes returns 
-syn keyword huffKeyword     return function constant
+syn keyword huffKeyword     return
 syn keyword huffBuiltinType address
 syn keyword huffBuiltinType int int8 int16 int24 int32 int40 int48 int56 int64 int72 
 syn keyword huffBuiltinType uint uint8 uint16 uint24 uint32 uint40 uint48 uint56 uint64 uint72 
@@ -45,7 +45,7 @@ syn keyword huffConstant nextgroup=huffConstName skipwhite skipempty constant
 syn match huffConstName  contained skipwhite skipempty '\v<[a-zA-Z_][0-9a-zA-Z_]*'
 
 hi def link huffConstant  Keyword
-hi def link huffConstName Function 
+hi def link huffConstName Constant 
 
 
 " Functions 
@@ -58,7 +58,7 @@ syn region huffFuncRetParens contains=huffBuiltinType,huffComma start='(' end=')
 
 hi def link huffFunction      Keyword
 hi def link huffFuncName      Function
-hi def link huffFuncModifer   StorageClass 
+hi def link huffFuncModifer   Keyword 
 hi def link huffFuncReturn    Special
 
 " Common Groups
