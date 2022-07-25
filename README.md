@@ -6,8 +6,6 @@ Syntax files for [Huff](https://github.com/huff-language), A low-level assembly 
 > **Warning**
 >
 > This repo contains **highly** experimental code. Expect rapid iteration.
->
-> The current implementation does not currently work since environment variables are not refreshed.
 
 
 ## Installation
