@@ -50,11 +50,17 @@ hi def link huffAssemblyMethod Special
 hi def link huffAssemblyConst  Constant
 
 " Macro
-syn keyword huffMacro nextgroup=huffMacroName skipwhite skipempty macro
-syn match huffMacroName contained skipwhite skipempty '\v<[a-zA-Z_][0-9a-zA-Z_]*'
+syn keyword huffMacro      nextgroup=huffMacroName skipwhite skipempty macro
+syn match huffMacroName    contained nextgroup=huffMacroParens skipwhite skipempty '\v<[A-Z_][0-9A-Z_]*'
+syn region huffMacroParens start='(' end=')' skipwhite skipempty
 
 hi def link huffMacro     Keyword
 hi def link huffMacroName Function
+
+" Macro call
+syn match  huffMacroNameCall contained nextgroup=huffMacroParens skipwhite skipempty '\v<[A-Z_][0-9A-Z_]*'
+
+hi def link huffMacroNameCall Function
 
 " Constant Definition
 syn keyword huffConstant nextgroup=huffConstName skipwhite skipempty constant
